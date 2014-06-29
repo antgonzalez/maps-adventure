@@ -1,0 +1,22 @@
+<body>
+<script type="text/javascript"
+src="http://maps.googleapis.com/maps/api/js?libraries=visualization"
+&sensors=false>
+</script>
+<script type="text/javascript">
+  function initialize() {
+	var map = new google.maps.Map(document.getElementByID('map_canvas'), {
+		center: new google.maps.LatLng(-33.85, 150.1),
+		zoom: 6,
+		mapTypeId: 'roadmap'
+});
+
+	var myLayer = new google.maps.visualization.DynamicMapsEngineLayer({
+		mapsId: '10164196010489469793-15309358640621429347'
+		layerKey: 'layer_00001'
+});
+	myLayer.setMap(map);
+}
+</script>
+</body>
+
