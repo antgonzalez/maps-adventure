@@ -1,22 +1,37 @@
-<body>
-<script type="text/javascript"
-src="http://maps.googleapis.com/maps/api/js?libraries=visualization"
-&sensors=false>
-</script>
-<script type="text/javascript">
-  function initialize() {
-	var map = new google.maps.Map(document.getElementByID('map_canvas'), {
-		center: new google.maps.LatLng(-33.85, 150.1),
-		zoom: 6,
-		mapTypeId: 'roadmap'
-});
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Maps Engine Layer</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+      html, body, #map-canvas {
+        height: 100%;
+        margin: 0px;
+        padding: 0px
+      }
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=visualization"></script>
+    <script>
+function initialize() {
+  var mapOptions = {
+    zoom: 14,
+    center: new google.maps.LatLng(59.322506, 18.010025)
+  };
 
-	var myLayer = new google.maps.visualization.DynamicMapsEngineLayer({
-		mapsId: '10164196010489469793-15309358640621429347'
-		layerKey: 'layer_00001'
-});
-	myLayer.setMap(map);
+  var map = new google.maps.Map(document.getElementById('map-canvas'),
+    mapOptions);
+
+  var mapsEngineLayer = new google.maps.visualization.MapsEngineLayer({
+    layerId: '10164196010489469793-04608522558019352534',
+    map: map
+  });
 }
-</script>
-</body>
+google.maps.event.addDomListener(window, 'load', initialize);
 
+    </script>
+  </head>
+  <body>
+    <div id="map-canvas"></div>
+  </body>
+</html>
